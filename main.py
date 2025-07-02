@@ -170,3 +170,131 @@ async def getBlock(block: int, commitment_type: str):
             return response.json()
         except Exception:
             return None
+
+
+@mcp.tool
+async def getBlockCommitment(blocks: List[int]):
+    """
+    Get Account Balance
+    """
+    
+    # if commitment_type not in [c.value for c in SolanaCommitment]:
+    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+    
+    async with httpx.AsyncClient() as client:
+        try:
+            url = "https://mainnet.helius-rpc.com/"
+            headers = {
+                "Content-Type": "application/json"
+            }
+            query_params = {
+                "api-key": helius_api_key
+            }
+            payload = {
+                "jsonrpc": "2.0",
+                "id": str(uuid4),
+                "method": "getBlockCommitment",
+                "params": blocks
+            }
+            
+            response = await client.post(
+                url,
+                headers=headers,
+                params=query_params,
+                json=payload,
+                timeout=30.0
+            )
+            response.raise_for_status()
+            return response.json()
+        except Exception:
+            return None
+
+
+@mcp.tool
+async def getBlockHeight(first_slot: int, last_slot: int, commitment_type: str):
+    """
+    Get Account Balance
+    """
+    
+    # if commitment_type not in [c.value for c in SolanaCommitment]:
+    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+    
+    async with httpx.AsyncClient() as client:
+        try:
+            url = "https://mainnet.helius-rpc.com/"
+            headers = {
+                "Content-Type": "application/json"
+            }
+            query_params = {
+                "api-key": helius_api_key
+            }
+            payload = {
+                "jsonrpc": "2.0",
+                "id": str(uuid4),
+                "method": "getBlockHeight",
+                "params": [
+                    {
+                        "commitment": commitment_type, # processed, confirmed, finalized
+                    }
+                ]
+            }
+            
+            response = await client.post(
+                url,
+                headers=headers,
+                params=query_params,
+                json=payload,
+                timeout=30.0
+            )
+            response.raise_for_status()
+            return response.json()
+        except Exception:
+            return None
+
+
+@mcp.tool
+async def getBlockProduction(identity_public_key: str, range_first_slot: int, range_last_slot: int, commitment_type: str):
+    """
+    Get Account Balance
+    """
+    
+    # if commitment_type not in [c.value for c in SolanaCommitment]:
+    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+    
+    async with httpx.AsyncClient() as client:
+        try:
+            url = "https://mainnet.helius-rpc.com/"
+            headers = {
+                "Content-Type": "application/json"
+            }
+            query_params = {
+                "api-key": helius_api_key
+            }
+            payload = {
+                "jsonrpc": "2.0",
+                "id": str(uuid4),
+                "method": "getBlockProduction",
+                "params": [
+                    {
+                        "identity": identity_public_key,
+                        "commitment": commitment_type, # processed, confirmed, finalized
+                        "range": {
+                            "firstSlot": range_first_slot,
+                            "lastSlot": range_last_slot
+                        }
+                    }
+                ]
+            }
+            
+            response = await client.post(
+                url,
+                headers=headers,
+                params=query_params,
+                json=payload,
+                timeout=30.0
+            )
+            response.raise_for_status()
+            return response.json()
+        except Exception:
+            return None
+
