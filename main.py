@@ -298,3 +298,165 @@ async def getBlockProduction(identity_public_key: str, range_first_slot: int, ra
         except Exception:
             return None
 
+
+@mcp.tool
+async def getBlocks(first_slot: int, end_slot: int, commitment_type: str):
+    """
+    Get Account Balance
+    """
+    
+    # if commitment_type not in [c.value for c in SolanaCommitment]:
+    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+    
+    async with httpx.AsyncClient() as client:
+        try:
+            url = "https://mainnet.helius-rpc.com/"
+            headers = {
+                "Content-Type": "application/json"
+            }
+            query_params = {
+                "api-key": helius_api_key
+            }
+            payload = {
+                "jsonrpc": "2.0",
+                "id": str(uuid4),
+                "method": "getBlocks",
+                "params": [
+                    first_slot,
+                    end_slot,
+                    {
+                        "commitment": commitment_type # confirmed, finalized
+                    }
+                ]
+            }
+            
+            response = await client.post(
+                url,
+                headers=headers,
+                params=query_params,
+                json=payload,
+                timeout=30.0
+            )
+            response.raise_for_status()
+            return response.json()
+        except Exception:
+            return None
+
+
+@mcp.tool
+async def getBlocksWithLimit(start_slot: int, limit: int, commitment_type: str):
+    """
+    Get Account Balance
+    """
+    
+    # if commitment_type not in [c.value for c in SolanaCommitment]:
+    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+    
+    async with httpx.AsyncClient() as client:
+        try:
+            url = "https://mainnet.helius-rpc.com/"
+            headers = {
+                "Content-Type": "application/json"
+            }
+            query_params = {
+                "api-key": helius_api_key
+            }
+            payload = {
+                "jsonrpc": "2.0",
+                "id": str(uuid4),
+                "method": "getBlocksWithLimit",
+                "params": [
+                    {
+                        "start_slot": start_slot,
+                        "limit": limit,
+                        "commitment": commitment_type # confirmed, finalized
+                    }
+                ]
+            }
+            
+            response = await client.post(
+                url,
+                headers=headers,
+                params=query_params,
+                json=payload,
+                timeout=30.0
+            )
+            response.raise_for_status()
+            return response.json()
+        except Exception:
+            return None
+
+
+@mcp.tool
+async def getBlockTime(blocks: List[int]):
+    """
+    Get Account Balance
+    """
+    
+    # if commitment_type not in [c.value for c in SolanaCommitment]:
+    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+    
+    async with httpx.AsyncClient() as client:
+        try:
+            url = "https://mainnet.helius-rpc.com/"
+            headers = {
+                "Content-Type": "application/json"
+            }
+            query_params = {
+                "api-key": helius_api_key
+            }
+            payload = {
+                "jsonrpc": "2.0",
+                "id": str(uuid4),
+                "method": "getBlockTime",
+                "params": blocks
+            }
+            
+            response = await client.post(
+                url,
+                headers=headers,
+                params=query_params,
+                json=payload,
+                timeout=30.0
+            )
+            response.raise_for_status()
+            return response.json()
+        except Exception:
+            return None
+
+
+@mcp.tool
+async def getBlockTime():
+    """
+    Get Account Balance
+    """
+    
+    # if commitment_type not in [c.value for c in SolanaCommitment]:
+    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+    
+    async with httpx.AsyncClient() as client:
+        try:
+            url = "https://mainnet.helius-rpc.com/"
+            headers = {
+                "Content-Type": "application/json"
+            }
+            query_params = {
+                "api-key": helius_api_key
+            }
+            payload = {
+                "jsonrpc": "2.0",
+                "id": str(uuid4),
+                "method": "getClusterNodes"
+            }
+            
+            response = await client.post(
+                url,
+                headers=headers,
+                params=query_params,
+                json=payload,
+                timeout=30.0
+            )
+            response.raise_for_status()
+            return response.json()
+        except Exception:
+            return None
