@@ -88,9 +88,7 @@ async def getAccountBalance(wallet_address: str, commitment_type: str):
     """
     Get Account Balance
     """
-    
-    # if commitment_type not in [c.value for c in SolanaCommitment]:
-    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+
     
     async with httpx.AsyncClient() as client:
         try:
@@ -130,11 +128,9 @@ async def getAccountBalance(wallet_address: str, commitment_type: str):
 @mcp.tool
 async def getBlock(block: int, commitment_type: str):
     """
-    Get Account Balance
+    Get Block Information
     """
-    
-    # if commitment_type not in [c.value for c in SolanaCommitment]:
-    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+
     
     async with httpx.AsyncClient() as client:
         try:
@@ -175,11 +171,9 @@ async def getBlock(block: int, commitment_type: str):
 @mcp.tool
 async def getBlockCommitment(blocks: List[int]):
     """
-    Get Account Balance
+    Get Block Commitment
     """
-    
-    # if commitment_type not in [c.value for c in SolanaCommitment]:
-    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+
     
     async with httpx.AsyncClient() as client:
         try:
@@ -213,11 +207,9 @@ async def getBlockCommitment(blocks: List[int]):
 @mcp.tool
 async def getBlockHeight(first_slot: int, last_slot: int, commitment_type: str):
     """
-    Get Account Balance
+    Get Block Height
     """
-    
-    # if commitment_type not in [c.value for c in SolanaCommitment]:
-    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+
     
     async with httpx.AsyncClient() as client:
         try:
@@ -255,11 +247,9 @@ async def getBlockHeight(first_slot: int, last_slot: int, commitment_type: str):
 @mcp.tool
 async def getBlockProduction(identity_public_key: str, range_first_slot: int, range_last_slot: int, commitment_type: str):
     """
-    Get Account Balance
+    Get Block Production
     """
-    
-    # if commitment_type not in [c.value for c in SolanaCommitment]:
-    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+
     
     async with httpx.AsyncClient() as client:
         try:
@@ -302,11 +292,9 @@ async def getBlockProduction(identity_public_key: str, range_first_slot: int, ra
 @mcp.tool
 async def getBlocks(first_slot: int, end_slot: int, commitment_type: str):
     """
-    Get Account Balance
+    Get Blocks
     """
-    
-    # if commitment_type not in [c.value for c in SolanaCommitment]:
-    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+
     
     async with httpx.AsyncClient() as client:
         try:
@@ -346,11 +334,9 @@ async def getBlocks(first_slot: int, end_slot: int, commitment_type: str):
 @mcp.tool
 async def getBlocksWithLimit(start_slot: int, limit: int, commitment_type: str):
     """
-    Get Account Balance
+    Get Blocks but with Limit
     """
-    
-    # if commitment_type not in [c.value for c in SolanaCommitment]:
-    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+
     
     async with httpx.AsyncClient() as client:
         try:
@@ -390,11 +376,9 @@ async def getBlocksWithLimit(start_slot: int, limit: int, commitment_type: str):
 @mcp.tool
 async def getBlockTime(blocks: List[int]):
     """
-    Get Account Balance
+    Get Block Time
     """
-    
-    # if commitment_type not in [c.value for c in SolanaCommitment]:
-    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+
     
     async with httpx.AsyncClient() as client:
         try:
@@ -426,13 +410,11 @@ async def getBlockTime(blocks: List[int]):
 
 
 @mcp.tool
-async def getBlockTime():
+async def getClusterNodes():
     """
-    Get Account Balance
+    Get Cluster Nodes
     """
-    
-    # if commitment_type not in [c.value for c in SolanaCommitment]:
-    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+
     
     async with httpx.AsyncClient() as client:
         try:
@@ -465,11 +447,9 @@ async def getBlockTime():
 @mcp.tool
 async def getEpochInfo(commitment_type: str):
     """
-    Get Account Balance
+    Get Epoch Information
     """
-    
-    # if commitment_type not in [c.value for c in SolanaCommitment]:
-    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+
     
     async with httpx.AsyncClient() as client:
         try:
@@ -507,11 +487,9 @@ async def getEpochInfo(commitment_type: str):
 @mcp.tool
 async def getEpochSchedule(commitment_type: str):
     """
-    Get Account Balance
+    Get Epoch Schedule
     """
-    
-    # if commitment_type not in [c.value for c in SolanaCommitment]:
-    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+
     
     async with httpx.AsyncClient() as client:
         try:
@@ -549,11 +527,9 @@ async def getEpochSchedule(commitment_type: str):
 @mcp.tool
 async def getFeeForMessage(serialized_transaction_message: str, commitment_type: str):
     """
-    Get Account Balance
+    Get Fee Message
     """
-    
-    # if commitment_type not in [c.value for c in SolanaCommitment]:
-    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+
     
     async with httpx.AsyncClient() as client:
         try:
@@ -592,11 +568,9 @@ async def getFeeForMessage(serialized_transaction_message: str, commitment_type:
 @mcp.tool
 async def getFirstAvailableBlock():
     """
-    Get Account Balance
+    Get First Available Block
     """
-    
-    # if commitment_type not in [c.value for c in SolanaCommitment]:
-    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+
     
     async with httpx.AsyncClient() as client:
         try:
@@ -629,11 +603,9 @@ async def getFirstAvailableBlock():
 @mcp.tool
 async def getGenesisHash():
     """
-    Get Account Balance
+    Get Genesih Hash
     """
-    
-    # if commitment_type not in [c.value for c in SolanaCommitment]:
-    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+
     
     async with httpx.AsyncClient() as client:
         try:
@@ -666,11 +638,9 @@ async def getGenesisHash():
 @mcp.tool
 async def getHealth():
     """
-    Get Account Balance
+    Get Health
     """
-    
-    # if commitment_type not in [c.value for c in SolanaCommitment]:
-    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+
     
     async with httpx.AsyncClient() as client:
         try:
@@ -703,11 +673,9 @@ async def getHealth():
 @mcp.tool
 async def getHighestSnapshotSlot():
     """
-    Get Account Balance
+    Get Highest Snapshot Slot
     """
-    
-    # if commitment_type not in [c.value for c in SolanaCommitment]:
-    #     raise ValueError(f"Invalid commitment: {commitment_type}. Valid options: {[c.value for c in SolanaCommitment]}")
+
     
     async with httpx.AsyncClient() as client:
         try:
